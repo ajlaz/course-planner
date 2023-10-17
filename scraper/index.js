@@ -52,30 +52,13 @@ const scrape = async () => {
     }
     
     browser.close();
-    //turn the object into a string and write it to a file in csv format
-    const csv = convertToCSV(allCourses);
-    fs.writeFileSync('courses.csv', csv);
+    //save the file as a json file
+    fs.writeFileSync('courses.json', JSON.stringify(allCourses));
+    
     console.log('Done!');
     
     
 }
 
-const convertToCSV = (objArray) => {
-    const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
-    let str = `${Object.keys(array[0]).join(',')}` + '\r\n';
-    
-    for (let i = 0; i < array.length; i++) {
-        let line = '';
-        for (let index in array[i]) {
-            if (line != '') line += ','
-            
-            line += array[i][index];
-        }
-        
-        str += line + '\r\n';
-    }
-    
-    return str;
-}
 
 scrape();
