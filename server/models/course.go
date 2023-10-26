@@ -9,3 +9,4 @@ type Course struct {
 	Prerequisites string         `json:"prerequisites"`
 	Hubs          pq.StringArray `json:"hubs" gorm:"type:text[]"`
 }
+

@@ -40,3 +40,5 @@ func (a *API) GetCoursesByHubs(c *gin.Context) {
 	courses := postgres.SelectByHubs(arr, a.db)
 	c.JSON(200, gin.H{"courses": courses})
 }
+
+

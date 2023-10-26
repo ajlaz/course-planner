@@ -14,7 +14,7 @@ type API struct {
 
 func New() *API {
 	db := postgres.Connect()
-	db.AutoMigrate(&models.Course{})
+	db.AutoMigrate(&models.Course{}, &models.User{})
 	return &API{
 		Engine: gin.Default(),
 		db:     db,
