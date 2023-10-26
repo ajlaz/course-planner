@@ -52,3 +52,10 @@ func (a *API) Register(c *gin.Context) {
 	}
 	c.JSON(200, gin.H{"user": user})
 }
+
+func (a *API) GetUserRemainingHubs(c *gin.Context) {
+	userID := c.Param("id")
+	courses := postgres.GetAllUserCourses(userID, a.db)
+	hubs := postgres.CalculateRemainingHubs(courses)
+	c.JSON(200, gin.H{"hubs": hubs})
+}

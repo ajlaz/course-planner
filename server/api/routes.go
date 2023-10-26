@@ -9,4 +9,5 @@ func (a *API) RegisterRoutes() {
 	engine.GET("/users/:id/courses", a.GetCoursesByUser)
 	engine.POST("/register", a.Register)
 	engine.POST("/login", a.Login)
+	engine.GET("/users/:id/hubs", a.GetUserRemainingHubs)
 }
