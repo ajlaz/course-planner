@@ -7,10 +7,12 @@ export const coursesSlice = createSlice({
     },
     reducers: {
         setCourses: (state, action) => {
-            state.courses = action.payload;
+            console.log(action)
+            state.courses = [...action.payload.courses];
         },
         addCourses : (state, action) => {
-            state.courses = [...state.courses, action.payload];
+            console.log(action.payload.course)
+            state.courses = [...state.courses, action.payload.course];
         }
     },
 });

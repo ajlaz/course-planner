@@ -16,9 +16,10 @@ const getCourses = async (userid) => {
 
 const getCourseById = async (courseid) => {
     const res = await axios({
-        method: "post",
+        method: "get",
         url: `${baseUrl}/courses/${courseid}`,
     })
+    return res.data;
 }
 
 /*
@@ -42,4 +43,4 @@ const addCourseToUser = async (userid, courseid) => {
     return res
 }
 
-export { addCourseToUser, getCourses };
+export { addCourseToUser, getCourses, getCourseById};

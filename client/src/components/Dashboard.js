@@ -6,13 +6,13 @@ import CourseAdd from './CourseAdd';
 
 export default function Dashboard() {
     const user = useSelector(state => state.users.user);
-    const courses = useSelector(state => state.courses.courses.courses);
+    const courses = useSelector(state => state.courses.courses);
     const dispatch = useDispatch();
     useEffect(() => {
         getCourses(user.id).then((courses) => {
             dispatch(setCourses(courses));
         });
-        console.log(courses)
+        console.log("COURSES: " + courses)
     }, []);
     return (
         <div>

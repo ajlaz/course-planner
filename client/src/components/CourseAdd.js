@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector} from 'react-redux';
-import { addCourseToUser } from '../api/courses';
+import { addCourseToUser, getCourseById } from '../api/courses';
+import {addCourses } from '../features/courses/courses';
 
 export default function CourseAdder() {
     const user = useSelector(state => state.users.user);
+    const courses = useSelector(state => state.courses.courses);
     const dispatch = useDispatch();
 
     const addCourse = () => {
@@ -13,7 +15,18 @@ export default function CourseAdder() {
         }).catch((err) => {
             console.log(err);
         });
+        getCourseById(courseCode).then((course) => {
+            const inCourses = courses.some((temp) => temp.courseCode === courseCode);
+            if(!inCourses){
+                dispatch(addCourses(course));
+            }
+        });
+
     }
+
+    useEffect(() => {
+        
+    }, [])
     return (
         <div>
             <input id="courseCode"></input>
@@ -21,4 +34,3 @@ export default function CourseAdder() {
         </div>
     )
 }
-
