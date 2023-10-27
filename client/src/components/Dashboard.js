@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCourses } from '../api/courses';
-import { setCourses } from '../features/courses/courses';
+import { getCourses, removeCourseFromUser  } from '../api/courses';
+import { setCourses, removeCourses } from '../features/courses/courses';
 import CourseAdd from './CourseAdd';
 
 export default function Dashboard() {
     const user = useSelector(state => state.users.user);
     const courses = useSelector(state => state.courses.courses);
+
+
+    //Load courses for user
     const dispatch = useDispatch();
     useEffect(() => {
         getCourses(user.id).then((courses) => {
@@ -14,6 +17,18 @@ export default function Dashboard() {
         });
         console.log("COURSES: " + courses)
     }, []);
+
+    const testRemove = () => {
+        const toRemove = {
+            courseCode: "CAS CS 210"
+        }
+        removeCourseFromUser(user.id, toRemove.courseCode).then((res) => {
+            dispatch(removeCourses(toRemove));
+        }).catch((err) => {
+            console.log(err);
+        });
+        
+    }
     return (
         <div>
             {user.id ? (
@@ -31,6 +46,7 @@ export default function Dashboard() {
                             ))
                         }
                         </div>
+                        <button id="test" onClick={testRemove}>Test course removal</button>
                         <CourseAdd />
                 </div>
             ) : "loading"}

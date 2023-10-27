@@ -22,6 +22,17 @@ const getCourseById = async (courseid) => {
     return res.data;
 }
 
+const removeCourseFromUser = async (userid, courseid) => {
+    const res = await axios({
+        method: "delete",
+        url: `${baseUrl}/users/courses`,
+        data: {
+            userID: userid,
+            courseCodes: courseid
+        }
+    })
+    return res
+}
 /*
 
 func (a *API) GetCourse(c *gin.Context) {
@@ -43,4 +54,4 @@ const addCourseToUser = async (userid, courseid) => {
     return res
 }
 
-export { addCourseToUser, getCourses, getCourseById};
+export { addCourseToUser, getCourses, getCourseById, removeCourseFromUser};

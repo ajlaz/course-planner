@@ -10,4 +10,5 @@ func (a *API) RegisterRoutes() {
 	engine.POST("/register", a.Register)
 	engine.POST("/login", a.Login)
 	engine.GET("/users/:id/hubs", a.GetUserRemainingHubs)
+	engine.DELETE("/users/courses", a.DeleteCoursesFromUser)
 }

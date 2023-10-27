@@ -13,8 +13,13 @@ export const coursesSlice = createSlice({
         addCourses : (state, action) => {
             console.log(action.payload.course)
             state.courses = [...state.courses, action.payload.course];
+        },
+        removeCourses : (state, action) => {
+            const temp = [...state.courses]
+            state.courses = temp.filter((course) => course.courseCode !== action.payload.courseCode);
         }
+
     },
 });
 
-export const { setCourses, addCourses } = coursesSlice.actions;
+export const { setCourses, addCourses, removeCourses } = coursesSlice.actions;

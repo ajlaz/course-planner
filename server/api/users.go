@@ -59,3 +59,14 @@ func (a *API) GetUserRemainingHubs(c *gin.Context) {
 	hubs := postgres.CalculateRemainingHubs(courses)
 	c.JSON(200, gin.H{"hubs": hubs})
 }
+
+func (a *API) DeleteCoursesFromUser(c *gin.Context) {
+	req := models.CourseRequest{}
+	err := c.ShouldBindJSON(&req)
+	if err != nil {
+		c.JSON(400, gin.H{"error": err.Error()})
+		return
+	}
+	postgres.DeleteCourseFromUser(req.UserID, req.CourseCodes, a.db)
+	c.JSON(200, gin.H{"courses": req.CourseCodes})
+}
