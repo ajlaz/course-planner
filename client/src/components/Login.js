@@ -21,9 +21,9 @@ export default function Login() {
         });
     }
   return (
-    <div>
-        <input id="username"></input>
-        <input id="password"></input>
+    <div className="login">
+        <input type="text" id="username"></input>
+        <input type="password" id="password"></input>
         <button onClick={loginUser}>Login</button>
     </div>
   )

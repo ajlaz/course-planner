@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/ajlaz/course-planner/api"
-)
+import "github.com/ajlaz/course-planner/api"
 
 func main() {
 	a := api.New()

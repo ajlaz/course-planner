@@ -11,4 +11,5 @@ func (a *API) RegisterRoutes() {
 	engine.POST("/login", a.Login)
 	engine.GET("/users/:id/hubs", a.GetUserRemainingHubs)
 	engine.DELETE("/users/courses", a.DeleteCoursesFromUser)
+	engine.GET("/users/:id/suggest", a.SuggestCourses)
 }

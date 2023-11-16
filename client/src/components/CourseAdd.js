@@ -28,7 +28,7 @@ export default function CourseAdder() {
         
     }, [])
     return (
-        <div>
+        <div className="courseAdder">
             <input id="courseCode"></input>
             <button onClick={addCourse}>Add Course</button>
         </div>

@@ -7,16 +7,17 @@ export const coursesSlice = createSlice({
     },
     reducers: {
         setCourses: (state, action) => {
-            console.log(action)
             state.courses = [...action.payload.courses];
+            state.courses = state.courses.filter((course) => course.courseCode !== "");
         },
         addCourses : (state, action) => {
-            console.log(action.payload.course)
             state.courses = [...state.courses, action.payload.course];
+            state.courses = state.courses.filter((course) => course.courseCode !== "");
         },
         removeCourses : (state, action) => {
             const temp = [...state.courses]
             state.courses = temp.filter((course) => course.courseCode !== action.payload.courseCode);
+            state.courses = state.courses.filter((course) => course.courseCode !== "");
         }
 
     },

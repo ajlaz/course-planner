@@ -10,7 +10,6 @@ const getCourses = async (userid) => {
     });
 
     const courses = res.data;
-    console.log(courses)
     return courses;
 }
 
@@ -54,4 +53,12 @@ const addCourseToUser = async (userid, courseid) => {
     return res
 }
 
-export { addCourseToUser, getCourses, getCourseById, removeCourseFromUser};
+const suggestCoursesToUser = async (userid) => {
+    const res = await axios({
+        method: "get",
+        url: `${baseUrl}/users/${userid}/suggest`
+        
+    })
+    return res;
+}
+export { addCourseToUser, getCourses, getCourseById, removeCourseFromUser, suggestCoursesToUser};

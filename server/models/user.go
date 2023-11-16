@@ -15,12 +15,13 @@ type CourseRequest struct {
 
 func GetHubs() map[string]int {
 	hubs := map[string]int{
-		"Philosophical Inquiry and Life’s Meanings":     1,
+		"Philosophical Inquiry and Life's Meanings":     1,
 		"Aesthetic Exploration":                         1,
 		"Historical Consciousness":                      1,
 		"Scientific Inquiry I":                          1,
 		"Social Inquiry I":                              1,
-		"Scientific Inquiry II or Social Inquiry II":    1,
+		"Scientific Inquiry II":                         1,
+		"Social Inquiry II":                             1,
 		"Quantitative Reasoning I":                      1,
 		"Quantitative Reasoning II":                     1,
 		"The Individual in Community":                   1,

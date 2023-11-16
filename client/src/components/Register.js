@@ -12,7 +12,7 @@ export default function Register() {
         });
     }
   return (
-    <div>
+    <div className="register">
         <input id="username"></input>
         <input id="password"></input>
         <button onClick={registerUser}>Register</button>
