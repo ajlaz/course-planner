@@ -24,3 +24,6 @@ go run ./...
 
 This should work as long as you have a basic postgres db running on your computer with port 5432.
 
+## References
+
+[BU Course Search](https://www.bu.edu/phpbin/course-search/)
