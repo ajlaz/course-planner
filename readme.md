@@ -6,6 +6,12 @@
 
 This is a course planner for Boston University students. It allows students to plan their courses for the next semester and see what their hubs look like, and suggests courses to help them fill their hubs.
 
+## Usage
+
+Courses should be inputted in the form `XXX XX 123`
+
+Ex: `CAS CS 112`, `CAS MA 225`, `CAS WR 120` are all valid inputs.
+
 ## Local run
 
 1. Clone the repo
